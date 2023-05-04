@@ -1,0 +1,34 @@
+CREATE TABLE Joueur (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    pv INT NOT NULL,
+    attaque INT NOT NULL,
+    soin INT NOT NULL
+)ENGINE=InnoDB;
+
+
+CREATE TABLE Monstre (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    pv INT NOT NULL,
+    attaque INT NOT NULL,
+    soin INT NOT NULL
+)ENGINE=InnoDB;
+
+
+CREATE TABLE Arme (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    degat INT NOT NULL
+)ENGINE=InnoDB;
+
+
+CREATE TABLE Resultat (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    resultat VARCHAR(50) NOT NULL,
+    idJoueur INT NOT NULL,
+    idMonstre INT NOT NULL,
+    FOREIGN KEY (idJoueur) REFERENCES joueur(id),
+    FOREIGN KEY (idMonstre) REFERENCES monstre(id)
+)ENGINE=InnoDB;
+
+
